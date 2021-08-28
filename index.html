@@ -9,6 +9,27 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <script src="function.js"></script>
+
+        <!-- To link to Google sheets -->
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script>
+        function SubForm (){
+            $.ajax({
+                url:'https://api.apispreadsheets.com/data/17384/',
+                type:'post',
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                alert("Thank you for getting in touch! We will get back to you soon.")
+                },
+                error: function(){
+                alert("Thank you for getting in touch! We will get back to you soon.")
+                }
+            });
+        }
+        </script>
     </head>
     <body>
         <!-- Header -->
@@ -31,10 +52,14 @@
                   <br class="hidden lg:inline-block">Sharks
                 </h1>
                 <p class="mb-8 leading-relaxed">By classifying the shark using our maching learning model, help us help you identify the endanagered species of sharks. Let's save sharks together!</p>
-                <div class="flex justify-center">
-                  <input type="file" name="Upload" id="" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                  <button class="ml-4 inline-flex text-gray-700 bg-blue-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg" onclick="submitted()">Analyse</button>
-                </div>
+                <form id="myForm">
+                  <input type="text" name="Location spotted" value="Location spotted" id="locationSpotted" class="text-gray bg-blue-200 border-0 py-2 px-6 focus:outline-none hover:bg-blue-300 rounded text-lg">
+                  <br>
+                  <div class="flex justify-center">
+                    <input type="file" name="Image" id="" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-1 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    <button class="ml-4 inline-flex text-gray-700 bg-blue-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg" onclick="submitted()">Analyse</button>
+                  </div>
+                </form>
               </div>
               <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                 <img class="object-cover object-center rounded" alt="hero" src="Images/shark.png">

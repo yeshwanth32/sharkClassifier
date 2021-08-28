@@ -2,12 +2,35 @@ function submitted() {
     showResult();
 }
 
+var finalResult = 'basking';
+
+var sharkIdentifier = {
+  'basking': 'https://en.wikipedia.org/wiki/Basking_shark', 
+  'blacktip': 'https://en.wikipedia.org/wiki/Blacktip_shark', 
+  'blue': 'https://en.wikipedia.org/wiki/Blue_shark', 
+  'bull': 'https://en.wikipedia.org/wiki/Bull_shark', 
+  'hammerhead': 'https://en.wikipedia.org/wiki/Hammerhead_shark', 
+  'lemon': 'https://en.wikipedia.org/wiki/Lemon_shark', 
+  'mako': 'https://en.wikipedia.org/wiki/Shortfin_mako_shark',
+  'nurse': 'https://en.wikipedia.org/wiki/Nurse_shark',
+  'sand tiger': 'https://en.wikipedia.org/wiki/Sand_tiger_shark',
+  'thresher': 'https://en.wikipedia.org/wiki/Thresher_shark',
+  'tiger': 'https://en.wikipedia.org/wiki/Tiger_shark',
+  'whale': 'https://en.wikipedia.org/wiki/Whale_shark',
+  'white': 'https://en.wikipedia.org/wiki/Great_white_shark',
+  'whitetip': 'https://en.wikipedia.org/wiki/Oceanic_whitetip_shark'
+}
+
+var locationSpotted = 'null';
+
 function showResult() {
-    document.getElementById('result').innerHTML = `<section class="text-gray-600 body-font" style="background-color: lightblue;">
-    <div class="container px-5 py-24 mx-auto">
+
+  var url = sharkIdentifier[finalResult];
+  document.getElementById('result').innerHTML = `<section class="text-gray-600 body-font" style="background-color: lightblue;">
+    <div class="container px-5 py-24 mx-auto center">
       <div class="flex flex-col text-center w-full mb-20">
         <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">SharkClassifier</h2>
-        <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Results</h1>
+        <h1 class="sm:text-3xl text-3xl font-medium title-font text-gray-900">Results</h1>
       </div>
         <center>
         <div class="p-4 md:w-1/3">
@@ -19,8 +42,7 @@ function showResult() {
                 <h2 class="text-gray-900 text-lg title-font font-medium" id="resultName">ResultName</h2>
               </div>
               <div class="flex-grow">
-                <p class="leading-relaxed text-base">Description ikkada</p>
-                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                <a class="mt-3 text-indigo-500 inline-flex items-center" href="` + url + `">Learn More
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
@@ -33,5 +55,5 @@ function showResult() {
     </div>
   </section>`;
   document.getElementById('result').scrollIntoView();
+  locationSpotted = document.getElementById('locationSpotted').value;
 }
-
