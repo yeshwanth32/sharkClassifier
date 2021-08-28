@@ -6,7 +6,8 @@ const app = express()
 
 app.use(express.static('./'))
 
+const PORT = 8080;
+const HOST = '0.0.0.0';
 
-app.listen(9001, () => {
-  console.log('app now listening for requests!!!')
-})
+app.listen(PORT, HOST);
+//console.log(`Running on http://${HOST}:${PORT}`)
