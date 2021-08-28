@@ -133,5 +133,3 @@ shark_images/
 package.json
 package-lock.json
 node_modules/
-env/
-config/keys.json
