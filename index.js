@@ -42,6 +42,10 @@ app.use((err, req, res, next) => {
   next()
 })
 
+app.use(express.static('./'))
+
+
+
 app.listen(9001, () => {
   console.log('app now listening for requests!!!')
 })
